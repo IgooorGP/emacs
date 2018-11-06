@@ -1,0 +1,21 @@
+"""
+Module with the blueprint that contains the healthcheck route.
+"""
+
+import logging
+
+from flask import Blueprint
+from flask import jsonify
+from flask import make_response
+
+healthcheck_routes = Blueprint("healthcheck_routes", __name__)
+
+
+@healthcheck_routes.route("/healthcheck")
+def run_healthcheck():
+    """
+    This route performs a health check of the required webservices
+    of this application: MongoDB and RabbitMQ.
+
+    """
+    return make_response(jsonify({"ok": true}), 200)

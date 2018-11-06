@@ -1,0 +1,4 @@
+[MESSAGES CONTROL]
+max-line-length=120
+disable=C0103
+disable=C0330

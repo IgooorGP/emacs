@@ -1,2 +1,8 @@
-# emacs
-Config for emacs (emacs.d, init.el, etc)
+# Emacs config
+
+This repo contains all my emacs config files. Currently, it contains
+support for the following languages:
+
+* Python;
+* Clojure;
+* JS.

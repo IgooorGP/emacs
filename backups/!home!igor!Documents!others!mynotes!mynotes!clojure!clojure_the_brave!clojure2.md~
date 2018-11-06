@@ -1,0 +1,32 @@
+# Language Syntax
+
+Clojure understands two kidns of structures:
+
+* Literal data representation (strings, numbers, vectors...)
+* Operations (how we do things...)
+
+Clojure forms = valid code/ valid expressions!
+
+* Literal representations are valids forms and are evaluated;
+* Clojure evaluates EVERY expression.
+
+```clojure
+1
+"a string"
+["a" "vector" "of" "strings"]
+```
+
+## Operations
+
+ALL operations have the following form:
+
+```clojure
+(operator operand1 operand2 ...)
+```
+
+Since this is LISP, there are NO commas. Whitespaces ARE the separators.
+
+```clojure
+(+ 1 2 3)
+;=> 6
+```

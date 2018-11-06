@@ -1,0 +1,152 @@
+;; -*- coding: utf-8-unix -*-
+;; Automatically written history of CIDER REPL session
+;; Edit at your own risk
+
+("(defvar)" "x" "(let [x 2])" "(let x 2)" "((inc-maker 3) 2)" "(defn inc-maker
+  \"Returns a function that knows how to increment values.\"
+  [inc-by]
+
+  #(+ % inc-by)) " "(defn inc-maker
+  [inc-by]
+  #(+ % inc-by))" "(map #(str \"hey there: \" %2) [\"igor\" \"aline\"])" "(map #(str \"hey there: \" %1) [\"igor\" \"aline\"])" "(map #(str \"hey there: \" %) [\"igor\" \"aline\"])" "(not-anonymous-anymore 3)" "(def not-anonymous-anymore (fn [x] (* 3 x)))" "((fn [x] (* 2 x)) 5)" "((fn [x] (* 2 x)) 10)" "((fn [x] (* 2 x)) 10) " "(map (fn [name] (str \"hey there: \" name)) [\"igor\" \"aline\" \"others\"])" "(test)" "(defn test
+  []
+  (+ 1 2)
+  30
+  \"hi\")" "(test)" "(defn test
+  []
+  (println \"hi\")
+  (println \"hey\")
+  (println \"last one!\"))" "```
+(defn test
+  []
+  (println \"hi\")
+  (println \"hey\")
+  (println \"last one!\")) ;; last evaluated form is \"returned\" (~ like Ruby)
+```" "(test)" "(defn test
+  []
+  (+ 1 2)
+  30
+  \"hi\")" "(get-treasure-location {:lat 10 :lon -15})" "(defn get-treasure-location
+ [{:keys [lat lon] :as treasure-loc}] ;; here we lat and long are bound to the keys!
+
+ (println (str \"the latitude is: \" lat))  ;; since we pattern matched --> lat is available
+ (println (str \"the longitude is: \" (:lon treasure-loc))))" "(get-treasure-location {:lat 2 :lon -1})" "(defn get-treasure-location
+ [{:keys [lat lon] :as treasure-loc}] ;; here we lat and long are bound to the keys!
+
+ (println (str \"the latitude is: \" lat))  ;; since we pattern matched --> lat is available
+ (println (str \"the longitude is: \" (:lon treasure-loc))) ;; since we pattern matched --> lon is available
+ )" "(get-treasure-location {:lat 2 :lon 5})" "(defn get-treasure-location
+ [{:keys [lat lon]}] ;; here we lat and long are bound to the keys!
+
+ (println (str \"the latitude is: \" lat))  ;; since we pattern matched --> lat is available
+ (println (str \"the longitude is: \" lon))) ;; since we pattern matched --> lon is available" "(defn get-treasure-location
+ [{:keys [lat lon]}] ;; here we lat and long are bound to the keys!
+
+ (println (str \"the latitude is: \" lat))  ;; since we pattern matched --> lat is available
+ (println (str \"the longitude is: \" lon)) ;; since we pattern matched --> lon is available)" "(get-treasure-location {:lat 100})" "(get-treasure-location {:lat 100 :lon 32})" "(defn get-treasure-location
+ [{lat :lat lon :lon}] ;; here we bind the variable lat to the key :lat!
+
+ (println (str \"the latitude is: \" lat))  ;; since we pattern matched --> lat is available
+ (println (str \"the longitude is: \" lon)) ;; since we pattern matched --> lon is available
+ )" "(choose-two [\"hi\"])" "(defn choose-two
+  [[first second & tail]]
+  
+  (println (str \"first choice: \" first))
+  (println (str \"second choice: \" second))
+  (println (str \"rest of the choices: \" (clojure.string/join \", \" tail))))" "(choose-two [\"aline\" \"igor\" \"dunno1\" \"dunno2\"])" "(defn choose-two
+  [[first second & rest]]
+  
+  (println (str \"first choice: \" first))
+  (println (str \"second choice: \" second))
+  (println (str \"rest of the choices: \" (clojure.string/join \", \" rest))))" "(def choose-two
+  [[first second & rest]]
+  
+  (println (str \"first choice: \" first))
+  (println (str \"second choice: \" second))
+  (println (str \"rest of the choices: \" (clojure.string/join \", \" rest))))" "(def choose-two
+  [[first second & rest]] 
+  
+  (println (str \"first choice: \" first))
+  (println (str \"second choice: \" second))
+  (println (str \"rest of the choices: \" (clojure.string/join \", \" rest))))" "(def choose-two
+  [first second & rest]
+  
+  (println (str \"first choice: \" first))
+  (println (str \"second choice: \" second))
+  (println (str \"rest of the choices: \" (clojure.string/join \", \" rest))))" "(def choose-two)" "(defn test
+  (println \"hi\")
+  (println \"hey\"))" "(get-first [1])" "(get-first [1 2 3])" "(defn get-first
+  \"Gets the first element\"
+  [[first-elmnt second-elmnt]]  ;; [first-elmnt] => pattern that matches a vector and its first element!
+  [first-elmnt second-elmnt])" "(get-first [1 2 3])" "(defn get-first
+  \"Gets the first element\"
+  [[first-elmnt]]
+  first-elmnt)" "(fav-things \"igor\" \"code\" \"cs\")" "(defn fav-things
+  \"Greets someone and says his fav things\"
+  [name & things]
+  (str \"hey \" name \", here are my fav things:\" (clojure.string/join \", \" things)))" "(:[clojure.string :as str])" "(:require [clojure.string/join :as join])" "clojure.string/join" "(defn fav-things
+  \"Greets someone and says his fav things\"
+  [name & things]
+  (str \"hey \" name \", here are my fav things:\" (clojure.string/joins \", \" things)))" "(cast-out-many \"igor\" \"aline\")" "(defn cast-one
+  [one]
+  (println (str \"get out: \" one)))" "(cast-out-many \"igor\" \"aline\")" "(cast-one \"igor\")" "(defn cast-one
+  [one]
+  (str \"get out: \" one))
+
+(defn cast-out-many
+  [& xs]
+  (map cast-one xs)) ;; mapping is necessary because xs is a LIST" "(def cast-one
+  [one]
+  (str \"get out: \" one))
+
+(defn cast-out-many
+  [& xs]
+  (map cast-one xs))" "(cast-out \"hi\" \"hey\")" "(cast-out \"hi\")" "(defn cast-out
+  [& someone]
+  (map println someone))" "(cast-out \"hi\")" "(cast-out)" "(defn cast-out
+  [& someone]
+  (someone))" "(hit-someone \"him\" \"knife\")" "(hit-someone \"me\")" "(defn two-param
+ \"has 2 params fn ==> 2-arity\"
+ ([x y]
+   (str \"I take two params: \" x y)))" "(defn hit-someone
+ \"Hits someone with something.\"
+ ([who something]
+   (str \"You've hit \" who \" with \" something))
+ ([who]
+   (hit-someone who \"default item\")))" "(defn hit-someone
+ \"Hits someone with something.\"
+ [who something]
+ (str \"You've hit \" who \" with \" something)
+ ([who]
+  (hit-someone who \"default item\")))" "(defn hit-someone
+ \"Hits someone with something.\"
+ [who something]
+ (str \"You've hit \" who \" with \" something))
+ ([who]
+  (hit-someone who \"default item\"))
+  
+" "(defn hit-someone
+ \"Hits someone with something.\"
+ [who something]
+ (str \"You've hit \" who \" with \" something))
+ [who]
+ (hit-someone who \"default item\")" "(two-param \"hey\" \" there\")" "(two-param)" "(defn two-param
+ \"has 2 params fn\"
+ [x y]
+ (str \"I take two params: \" x y))" "(defn 2-param
+ \"has 2 params fn\"
+ [x y]
+ (str \"I take two params: \" x y))" "(defn 2-param
+ \"has 2 params fn\"
+ [x y]
+ (str \"I take two params: \" x \" \" y))" "(defn 2-param
+ \"has 2 params fn\"
+ [x y]
+ \"I take no params\")" "(type [1 2])" "(type (no-params))" "(no-params)" "(defn no-params
+ \"no params fn\"
+ []
+ \"I take no params\")" "(doc conj)" "(doc say-hi)" "(say-hi \"igor\")" "(defn say-hi
+ \"Returns a hi to the user\"
+  [name]
+  (str \"hey there \" name \"!\")) " "(+ (if (> 2 5) 5 10) 1)" "(map inc [1 2 3])" "(map inc [1 2])" "(type [1 2 3])" "[1 2 3]" "(map) inc [1 2 3]" "(inc 2)" "(inc 2 1)" "(inc 1)" "(1 2 3)" "((first [+ 0])1 2)" "(first [+ 0])" "((and (= 1 1) +) 1 2)" "(and (= 1 1) +)" "((and (= 1 1) +))" "(((and (= 1 1) +)) 1 2)" "(((and (= 1 1) +) 1 2))" "(and \"hi\" \"hey\" \"ho\")" "(and \"hi\" \"hey \"yo \"\")" "(and nil true)" "(and false \"hey\")" "(and \"hi\" \"hey\")" "(or false \"hi\")" "(or false true)" "(or true false)" "(and (= 1 1) +)" "(and (= 1 1))" "((or + -) 1 2)" "(or + -)" "(:c #{:a :b})" "(:a #{:a :b})" "(get #{:a :b} :c)" "(get #{:a :b} :a)" "(contains? #{:a :b} :a)" "(set [3 3 4 4])" "(conj #{1 2} 3)" "(conj #{1 2} 2)" "(conj #{1 2} 1)" "(hash-set 1 1 2 2 )" "#{\"hi\" 20 :b}" "
+" "(get '(:a :b :c) 1)" "(get '(:a :b :c) 0)" "(nth '(:a :b :c) 3)" "(nth '(:a :b :c) 0)" "exit" "'(1 2 3)" "(conj [1 2 3] 4)" "(vector \"hi\" 1 2)" "(get [\"a\" {:first \"igor\" :last \"gp\"} 2] 1)" "(get y 3)" "(get y 2)" "(get y 0)" "y" "(def y [1 2 3])" "(:c {:a 1 :b 2} \"default value\")" "(:a {:a 1 :b 2} \"default value\")" "({:a 1 :b 2} :c \"default value\")" "({:a 1 :b 2} :a \"default value\")" "({:a 1 :b 2} :b)" "({:a 1 :b 2} :a)" "(:a {:a 1 :b 2})" "(:b {:a 1 :b 2})" "(:b {:a 1 :b})" "(:b {:a 1 :b2})" "(:a {:a 1 :b 2})" "(:a {:a 1 :b2})" "({:a 1 :b 2} :b)" "({:a 1 :b 2} :a)" "(:key1 x)" "(x :key1)" "(x :key)" "x" "(refresh)" "clear" "(get x :key1)" "(x :key1)" "x" "(def x {:key1 1 :key2 2})" "(defvar x {:key1 1 :key2 2})" "(println \"hi\")")

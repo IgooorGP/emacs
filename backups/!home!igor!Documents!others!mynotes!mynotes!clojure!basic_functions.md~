@@ -1,0 +1,243 @@
+# Functions
+
+Lisp's charm is its expressivity for it allows us to create complex programs
+with simple and primary building blocks: ```functions```!
+
+* Lisp is beautiful, elegant and simple!
+
+
+## 1. Calling Functions
+
+All clojure operations (expressions) have the SAME syntax:
+
+```
+(operator operand1 operand2 ...)
+```
+
+* Function call is just an expression whose operator is
+a ```function``` or an ```expresion that returns a function.```
+
+Example of an expression that returns a function:
+
+```
+(or + -)
+
+;=> +
+```
+
+This returns the + function since everything (besides nil and false)
+evals to truthy and is the returned value of the or function:
+
+```
+((or + -) 1 2)  ;; (or + -) evals to + function which can be used to add 1 2
+;=> 3
+```
+
+* or function expression => evals to the FIRST TRUTHY argument (doesnt eval the rest)
+
+* and function expression => evals to the last TRUTHY argument or the first which is FALSEY
+  because the and function will not eval the arguments after there's a FALSEY.
+
+```
+(= 1 1) ;; evals to true
++       ;; evals to true and is the last truthy argument
+
+(and (= 1 1) +) ;; evals to +
+
+((and (= 1 1) +) 1 2) ;; evals to 3
+;=> 3
+```
+
+The following are NOT valid because the violate the basic syntax:
+
+```
+(1 2 3)  ;; 1 is NOT a function
+("hi" 2 3) ;; "hi" is NOT a function
+```
+
+Numbers and strings cannot be cast to functions!
+
+
+### Higher-order functions
+
+Clojure obviously treats functions as first-class citizens because
+they can be passed as arguments, returned by functions, etc.
+
+This allows powerful and expressive abstractions!
+
+As an example:
+
+```
+(map inc [1 2 3])
+;=> (2 3 4)
+```
+
+* Map does not return a vector! Later on we'll find the reason.
+
+Clojure EVALS all functions arguments recursively before
+passing them to the function. Hence, function CALLS
+triggers the recursive evaluation process.
+
+## Macro calls and special forms:
+
+* Function calls have a ```function expression``` as the operator;
+
+### Special forms
+
+They are "special" because they dont ALWAYS evaluate ALL of their operands.
+For example, ```if``` does not else part if the condition is true.
+
+* We've seen some: if expressions, definitions, etc.
+
+Another important thing is: they cannot be used as function arguments
+
+### Macros
+
+They also evaluate their operands in a diffent way than functions. We'll see more later.
+
+
+## Functions definitions
+
+Defining a function requires 5 main parts:
+
+* defn operator;
+* function name;
+* doctstring (optional);
+* parameters (listed in [square brackets] == vector);
+* function body.
+
+```
+(defn say-hi
+ "Returns a hi to the user"
+  [name]
+  (str "hey there " name "!")) 
+```
+
+To read a doc of a function:
+
+```
+(doc fn-name)
+```
+
+### Parameters and Function Arity
+
+* Clojure functions --> zero or more parameters!
+* The number of parameters --> arity of the function!
+
+```
+(defn no-params
+ "no params fn ==> --arity"
+ []
+ "I take no params")
+```
+```
+(defn two-param
+ "has 2 params fn ==> 2-arity"
+  [x y]
+   (str "I take two params: " x y))
+```
+
+### Arity overloading
+
+We can define multiple bodies for a single function so that
+a specific body will be executed depending on the arity.
+
+This is the right way to define "default values" for function
+arguments.
+
+```
+(defn hit-someone
+ "Hits someone with something."
+ ([who something]
+   (str "You've hit " who " with " something))
+ ([who]
+   (hit-someone who "default item")))
+```
+
+Syntax for arity-overloading:
+
+* write EACH body wrapped in ();
+* each body may do a completely different thing!
+
+```
+(def fn-name
+  "doc string of the fn def"
+
+  ([arg1 arg2]
+    (body1))
+
+  ([arg1]
+    (fn-name arg1 "default-2")))
+```
+
+### Variable-arity functions
+
+One can define functions that have arities that vary by using the
+```rest parameter``` which is ```&```.
+
+* The rest parameters are stored in list with the following name.
+* We can mix rest parameters (stored in a list) with normal ones,
+  but the rest parameters must be the last ones!
+
+```
+(defn cast-one
+  [one]
+  (println (str "get out: " one)))
+
+(defn cast-out-many
+  [& xs]
+  (map cast-one xs)) ;; mapping is necessary because xs is a LIST
+```
+
+Mixing parameters with rest parameters (list params):
+
+```
+(defn fav-things
+  "Greets someone and says his fav things"
+  [name & things]
+  (str "hey " name ", here are my fav things:" (clojure.string/join ", " things)))
+```
+
+Remeber, when dealing with rest parameters --> you must deal with a LIST!
+
+### Destructuring
+
+Clojure offers pattern matching! With it, we can bind names to values
+within a collection based on a data structure form!
+
+Destructuring == pattern matching!
+
+```
+(defn get-first
+  "Gets the first element"
+  [[first-elmnt]]  ;; [first-elmnt] => pattern that matches a vector and its first element!
+
+  first-elmnt)
+```
+
+```
+(defn get-two-first
+  "Gets the first element"
+  [[first-elmnt second-elmnt]]  ;; [first-elmnt] => pattern that matches a vector and its first element!
+
+  [first-elmnt second-elmnt]) ;; returns a vector with the two first elements
+```
+
+```
+(defn get-two-first
+  "Gets the first element"
+  [[first-elmnt second-elmnt]]  ;; [first-elmnt] => pattern that matches a vector and its first element!
+
+  [first-elmnt second-elmnt]) ;; returns a vector with the two first elements
+```
+
+```
+(defn choose-two
+  [[first second & tail]]
+  
+  (println (str "first choice: " first))
+  (println (str "second choice: " second))
+  (println (str "rest of the choices: " (clojure.string/join ", " tail))))
+```
+
+We can also destructure lists!

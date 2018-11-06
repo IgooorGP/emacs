@@ -1,0 +1,15 @@
+"""
+Main python file that contains the Flask app
+which is executed by Gunicorn WSGI server.
+"""
+
+
+import log.log_formatter
+from flask import Flask
+from routes.listening_routes import listening_routes
+
+# Creates main app for Gunicorn
+app = Flask(__name__)
+
+# registers blueprint with the listening routes (with a prefix)
+app.register_blueprint(listening_routes, url_prefix="/v1")
