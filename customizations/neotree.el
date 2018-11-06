@@ -6,7 +6,7 @@
 (global-set-key [f8] 'neotree-toggle) 
 
 ;; customizes hidden files for neotree
-(setq neo-hidden-regexp-list '("\\.pyc$" "__pycache__" ".git"))
+(setq neo-hidden-regexp-list '("\\.pyc$" "__pycache__" ".git" ".vscode" ".db"))
 (require 'all-the-icons)
 
 ;; displays icons if emacs is the graphic version

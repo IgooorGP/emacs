@@ -20,3 +20,5 @@
             (setq coffee-cleanup-whitespace nil)))
 (custom-set-variables
  '(coffee-tab-width 2))
+
+(electric-pair-mode t)
