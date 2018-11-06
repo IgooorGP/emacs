@@ -1,7 +1,0 @@
-#----------------------------------------------------------
-# Shell script to start the application by calling Honcho.
-#----------------------------------------------------------
-
-echo "Starting application..."
-# executes Procfile with gunicorn's web process
-honcho start

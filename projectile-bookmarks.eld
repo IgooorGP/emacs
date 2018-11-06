@@ -1,1 +1,0 @@
-("~/Documents/others/zap/zap-properties-listing-api/" "~/Documents/others/emacs/emacs/" "~/Documents/others/mynotes/mynotes/" "~/Documents/others/clojure-noob/clojure-noob/")
