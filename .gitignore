@@ -9,4 +9,5 @@ projectile.cache
 auto-save-list
 backups
 snippets
-_pycache__/
+__pycache__/
+network-security.data

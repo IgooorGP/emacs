@@ -167,7 +167,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (tide tagedit smex rainbow-delimiters projectile paredit neotree magit ido-ubiquitous exec-path-from-shell elpy clojure-mode-extra-font-locking cider all-the-icons))))
+    (markdown-mode tide tagedit smex rainbow-delimiters projectile paredit neotree magit ido-ubiquitous exec-path-from-shell elpy clojure-mode-extra-font-locking cider all-the-icons))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
