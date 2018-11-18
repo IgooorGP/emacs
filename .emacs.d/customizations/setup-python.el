@@ -17,7 +17,7 @@
 
 (defun activate-venv-for-elpy()
   "Activates virtualenv for the elpy mode if projectile is installed (required) and if .venv directory exists."
-
+  
   (let* ((venv-dir (concat (remove-last-dir (directory-file-name (file-name-directory (projectile-project-root)))) "/.venv")))
     (if (and (package-installed-p 'projectile) (file-directory-p venv-dir)) (pyvenv-activate venv-dir) (message "not .venv found!"))))
 
@@ -37,13 +37,3 @@
   (shell-command (concat "isort " buffer-file-name) "isort buffer" "isort error buffer")  ;; runs isort to sort the imports
   (revert-buffer :ignore-auto :noconfirm))))  ;; updates the current buffer
 
-
-;; older versions
-;; (defun activate-venv-for-elpy()
-;;   "Activates virtualenv for the elpy mode."
-;;   (if (and (package-installed-p 'projectile) (file-directory-p (concat (remove-last-dir (directory-file-name (file-name-directory (projectile-project-root)))) "/.venv"))) (pyvenv-activate (concat (remove-last-dir (directory-file-name (file-name-directory (projectile-project-root)))) "/.venv")) (message "not .venv found!")))
-
-;; (add-hook 'after-save-hook (lambda () (when (bound-and-true-p elpy-mode) (with-temp-buffer
-;;   (shell-command (concat "black " buffer-file-name " --line-length=120") t)) ;; runs black to format code
-;;   (shell-command (concat "isort " buffer-file-name) nil)  ;; runs isort to sort the imports
-;;   (revert-buffer :ignore-auto :noconfirm))))  ;; updates the current buffer

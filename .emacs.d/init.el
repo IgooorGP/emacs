@@ -32,7 +32,7 @@
 (defvar ido-cur-item nil)
 (defvar ido-default-item nil)
 (defvar ido-cur-list nil)
-(defvar predicate nil)
+;; (defvar predicate nil) <-- some lisp nesting problems with tide.el
 (defvar inherit-input-method nil)
 
 ;; The packages you want installed. You can also install these
@@ -150,14 +150,17 @@
 
 ;; Language-specific
 (load "setup-clojure.el")
-(load "setup-js.el")
+(load "setup-typescript.el") ;; sets typescript + javascript
 (load "setup-python.el")
 
-;; Neotree
+;; Neotree setting up
 (load "setup-neotree.el")
 
 ;; Magit
 (load "setup-magit.el")
+
+;; Webmode
+(load "setup-webmode.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -165,12 +168,18 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
+ '(magit-use-overlays nil)
  '(package-selected-packages
    (quote
-    (markdown-mode tide tagedit smex rainbow-delimiters projectile paredit neotree magit ido-ubiquitous exec-path-from-shell elpy clojure-mode-extra-font-locking cider all-the-icons))))
+    (tide web-mode js2-mode markdown-mode tagedit smex rainbow-delimiters projectile paredit neotree magit ido-ubiquitous exec-path-from-shell elpy clojure-mode-extra-font-locking cider all-the-icons))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; for tide.el evaluation
+(setq max-lisp-eval-depth 1000)
+(setq max-specpdl-size 32000) 
+(setq debug-on-error t)

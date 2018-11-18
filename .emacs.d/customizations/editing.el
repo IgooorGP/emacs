@@ -87,3 +87,7 @@
 
 ;; Cua mode
 (cua-mode t)
+
+;; FlyCheck mode globally (linting)
+;; turn on flychecking globally
+;; (add-hook 'after-init-hook #'global-flycheck-mode)

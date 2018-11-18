@@ -1,9 +1,12 @@
 ;;; tide-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "tide" "tide.el" (23521 36143 907117 520000))
+;;;### (autoloads nil "tide" "tide.el" (0 0 0 0))
 ;;; Generated autoloads from tide.el
 
 (autoload 'company-tide "tide" "\
@@ -55,10 +58,18 @@ timeout.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "tide" '("tide-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("tide-lv.el" "tide-pkg.el") (23521 36141
-;;;;;;  375158 238000))
+;;;### (autoloads nil "tide-lv" "tide-lv.el" (0 0 0 0))
+;;; Generated autoloads from tide-lv.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "tide-lv" '("tide-lv-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("tide-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -66,5 +77,6 @@ timeout.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; tide-autoloads.el ends here
