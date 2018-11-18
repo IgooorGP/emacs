@@ -1,6 +1,6 @@
-;; ;;;;
-;; ;; Typescript
-;; ;;;;
+;;;;
+;; Typescript and Javascript
+;;;;
 
 ;; ;; Helper functions
 (defun my-javadoc-return () 
@@ -28,6 +28,7 @@
     ;; else insert only new-line
     (insert "\n")))
 
+;; function to setup tide-mode
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -46,7 +47,11 @@
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (add-hook 'js-mode-hook #'setup-tide-mode)
 
-;; (add-hook 'js2-mode-hook (lambda () 
-;;   (local-set-key "\r" 'my-javadoc-return)))
+;; adds javadoc function for javascript
+(add-hook 'js-mode-hook (lambda () 
+  (local-set-key "\r" 'my-javadoc-return)))
 
+;; adds javadoc function for typescript
+(add-hook 'typescript-mode-hook (lambda () 
+  (local-set-key "\r" 'my-javadoc-return)))
 
