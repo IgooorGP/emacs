@@ -32,12 +32,14 @@ Sometimes, errors occurs. the ```init.el``` sets the debug mode to be on. Hence,
 
 This is way too general, but, sometimes, a good approach is to use ```M-x package-delete <pckg name>``` to purge the package from the elpa directory and then run ```M-x package-install <pckg name>```to reinstall the package. Reinstalling the package is also an option.
 
-Next, some common errors that I've encountered so far:
+# Some Common Errors
 
-# Python encoding error when Black is formatting:
+Next, some common errors that I've encountered so far and what to do to solve them
+
+### Python encoding error when Black is formatting:
 
 This error occured in a MacOS system. Black couldn't not format the file properly due to an encoding error.
 
 * Don't forget to export, on .bashrc, to set the following variable which forces applications to use the default language for output:
 
-```LC_ALL=en_US.UTF-8````
+```LC_ALL=en_US.UTF-8```
