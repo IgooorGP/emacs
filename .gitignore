@@ -2,12 +2,22 @@
 *~$
 places
 .recentf
-ido.last
-cider-history
 projectile-bookmarks.eld
 projectile.cache
 auto-save-list
 backups
 snippets
+
+# files from lisp packages
 __pycache__/
+*.pyc
+
+cider-history
+ido.last
 network-security.data
+
+# games folder
+games/
+
+# lisp files
+*.elc
